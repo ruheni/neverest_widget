@@ -5,288 +5,51 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-	 crossorigin="anonymous" />
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	 crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
 	<title>Neverest | One</title>
 </head>
 
 <body>
-	<!-- <style type="text/css">
-		.chatbox {
-			position: fixed;
-			bottom: 0;
-			right: 30px;
-			width: 300px;
-			height: 400px;
-			background-color: #fff;
-			font-family: 'Lato', sans-serif;
-			-webkit-transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
-			transition: all 600ms cubic-bezier(0.19, 1, 0.22, 1);
-			display: -webkit-flex;
-			display: flex;
-			-webkit-flex-direction: column;
-			flex-direction: column;
-		}
 
-		.chatbox--tray {
-			bottom: -350px;
-		}
-
-		.chatbox--closed {
-			bottom: -400px;
-		}
-
-		.chatbox .form-control:focus {
-			border-color: #1f2836;
-		}
-
-		.chatbox__title,
-		.chatbox__body {
-			border-bottom: none;
-		}
-
-		.chatbox__title {
-			min-height: 50px;
-			padding-right: 10px;
-			background-color: #1f2836;
-			border-top-left-radius: 4px;
-			border-top-right-radius: 4px;
-			cursor: pointer;
-			display: -webkit-flex;
-			display: flex;
-			-webkit-align-items: center;
-			align-items: center;
-		}
-
-		.chatbox__title h5 {
-			height: 50px;
-			margin: 0 0 0 15px;
-			line-height: 50px;
-			position: relative;
-			padding-left: 20px;
-			-webkit-flex-grow: 1;
-			flex-grow: 1;
-		}
-
-		.chatbox__title h5 a {
-			color: #fff;
-			max-width: 195px;
-			display: inline-block;
-			text-decoration: none;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-
-		.chatbox__title h5:before {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 50%;
-			left: 0;
-			width: 12px;
-			height: 12px;
-			background: #4CAF50;
-			border-radius: 6px;
-			-webkit-transform: translateY(-50%);
-			transform: translateY(-50%);
-		}
-
-		.chatbox__title__tray,
-		.chatbox__title__close {
-			width: 24px;
-			height: 24px;
-			outline: 0;
-			border: none;
-			background-color: transparent;
-			opacity: 0.5;
-			cursor: pointer;
-			-webkit-transition: opacity 200ms;
-			transition: opacity 200ms;
-		}
-
-		.chatbox__title__tray:hover,
-		.chatbox__title__close:hover {
-			opacity: 1;
-		}
-
-		.chatbox__title__tray span {
-			width: 12px;
-			height: 12px;
-			display: inline-block;
-			border-bottom: 2px solid #fff;
-		}
-
-		.chatbox__title__close svg {
-			vertical-align: middle;
-			stroke-linecap: round;
-			stroke-linejoin: round;
-			stroke-width: 1.2px;
-		}
-
-		.chatbox__body,
-		.chatbox__credentials {
-			padding: 15px;
-			border-top: 0;
-			background-color: #f5f5f5;
-			border-left: 1px solid #ddd;
-			border-right: 1px solid #ddd;
-			-webkit-flex-grow: 1;
-			flex-grow: 1;
-		}
-
-		.chatbox__credentials {
-			display: none;
-		}
-
-		.chatbox__credentials .form-control {
-			-webkit-box-shadow: none;
-			box-shadow: none;
-		}
-
-		.chatbox__body {
-			overflow-y: auto;
-		}
-
-		.chatbox__body__message {
-			position: relative;
-		}
-
-		.chatbox__body__message p {
-			padding: 15px;
-			border-radius: 4px;
-			font-size: 14px;
-			background-color: #fff;
-			-webkit-box-shadow: 1px 1px rgba(100, 100, 100, 0.1);
-			box-shadow: 1px 1px rgba(100, 100, 100, 0.1);
-		}
-
-		.chatbox__body__message img {
-			width: 40px;
-			height: 40px;
-			border-radius: 4px;
-			border: 2px solid #fcfcfc;
-			position: absolute;
-			top: 15px;
-		}
-
-		.chatbox__body__message--left p {
-			margin-left: 15px;
-			padding-left: 30px;
-			text-align: left;
-		}
-
-		.chatbox__body__message--left img {
-			left: -5px;
-		}
-
-		.chatbox__body__message--right p {
-			margin-right: 15px;
-			padding-right: 30px;
-			text-align: right;
-		}
-
-		.chatbox__body__message--right img {
-			right: -5px;
-		}
-
-		.chatbox__message {
-			padding: 15px;
-			min-height: 50px;
-			outline: 0;
-			resize: none;
-			border: none;
-			font-size: 12px;
-			border: 1px solid #ddd;
-			border-bottom: none;
-			background-color: #fefefe;
-		}
-
-		.chatbox--empty {
-			height: 262px;
-		}
-
-		.chatbox--empty.chatbox--tray {
-			bottom: -212px;
-		}
-
-		.chatbox--empty.chatbox--closed {
-			bottom: -262px;
-		}
-
-		.chatbox--empty .chatbox__body,
-		.chatbox--empty .chatbox__message {
-			display: none;
-		}
-
-		.chatbox--empty .chatbox__credentials {
-			display: block;
-		}
-
-		.jua_message {
-			word-break: break-all;
-		}
-	</style> -->
 	<script>
 
 		$('body')
 			.append(`<div class="chatbox chatbox--tray chatbox--empty">
-			<div class="chatbox__title">
-				<h5><a href="#">Customer Service</a></h5>
-				<button class="chatbox__title__tray"><span></span></button>
-				<button class="chatbox__title__close">
-					<span>
-						<svg viewBox="0 0 12 12" width="12px" height="12px">
-							<line
-								stroke="#FFFFFF"
-								x1="11.75"
-								y1="0.25"
-								x2="0.25"
-								y2="11.75"
-							></line>
-							<line
-								stroke="#FFFFFF"
-								x1="11.75"
-								y1="11.75"
-								x2="0.25"
-								y2="0.25"
-							></line>
-						</svg>
-					</span>
-				</button>
-			</div>
-			<div class="chatbox__body" id="jua_messages"></div>
-			<form class="chatbox__credentials">
-				<div class="form-group">
-					<label for="inputName">Name:</label>
-					<input
-						type="text"
-						class="form-control"
-						id="inputName"
-						required
-					/>
-				</div>
-				<div class="form-group">
-					<label for="inputEmail">Email:</label>
-					<input
-						type="email"
-						class="form-control"
-						id="inputEmail"
-						required
-					/>
-				</div>
-				<button type="submit" class="btn btn-success btn-block">
-					Enter Chat
-				</button>
-			</form>
-			<textarea
-				class="chatbox__message"
-				id="_jua_message_text"
-				placeholder="Write something interesting"
-			></textarea>
-		</div>`);
+    <div class="chatbox__title">
+        <h5><a href="#">Customer Service</a></h5>
+        <button class="chatbox__title__tray">
+            <span></span>
+        </button>
+        <button class="chatbox__title__close">
+            <span>
+                <svg viewBox="0 0 12 12" width="12px" height="12px">
+                    <line stroke="#FFFFFF" x1="11.75" y1="0.25" x2="0.25" y2="11.75"></line>
+                    <line stroke="#FFFFFF" x1="11.75" y1="11.75" x2="0.25" y2="0.25"></line>
+                </svg>
+            </span>
+        </button>
+    </div>
+    <div class="chatbox__body" id="jua_messages">
+
+    </div>
+    <form class="chatbox__credentials">
+        <div class="form-group">
+            <label for="inputName">Name:</label>
+            <input type="text" class="form-control" id="inputName" required>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">Email:</label>
+                <input type="email" class="form-control" id="inputEmail" required>
+            </div>
+                <button type="submit" class="btn btn-success btn-block">Enter Chat</button>
+        </form>
+            <textarea class="chatbox__message" id="_jua_message_text" placeholder="Write something interesting"></textarea>
+        </div>
+`);
 
 		// css 
 		$('body').append(`<style type="text/css">
@@ -508,20 +271,17 @@
 
 
 		(function ($) {
-			//do the js dom
-
 
 			/*
-	Credentials
-	*/
-			let _jua_javascript_key =
-				'c8c62904-2c07-4cd6-aba5-dd4173f33404';
+			Credentials
+			*/
+			let _jua_javascript_key = 'c8c62904-2c07-4cd6-aba5-dd4173f33404';
 			let _jua_conversation_id = null;
 
 			/*
-	Declare jua variables
-	*/
-			let base_url = 'http://6b903e0b.ngrok.io/api/';
+			Declare jua variables
+			 */
+			let base_url = 'http://86cdb6c2.ngrok.io';
 			let _start_url = base_url + 'start_conversation';
 			let _create_messages_url = base_url + 'save_message';
 			let _get_messages_url = base_url + 'get_messages';
@@ -530,7 +290,6 @@
 				$chatboxTitle = $('.chatbox__title'),
 				$chatboxTitleClose = $('.chatbox__title__close'),
 				$chatboxCredentials = $('.chatbox__credentials');
-
 			$chatboxTitle.on('click', function () {
 				$chatbox.toggleClass('chatbox--tray');
 			});
@@ -545,70 +304,65 @@
 				e.preventDefault();
 
 				//ajax to the remote and start chat save the conversation id to local storage
-				$.post(_start_url, {
-					javascript_key: _jua_javascript_key,
-					name: $('#inputName').val(),
-					email: $('#inputEmail').val()
-				}).done(function (data) {
-					var response = jQuery.parseJSON(data);
-					$chatbox.removeClass('chatbox--empty');
+				$.post(_start_url, { javascript_key: _jua_javascript_key, name: "Sample user", email: "user@email.com" })
+					.done(function (data) {
+						var response = jQuery.parseJSON(data);
+						$chatbox.removeClass('chatbox--empty');
 
-					_jua_conversation_id = response.conversation_id;
-					loadMessages();
-				});
+						_jua_conversation_id = response.conversation_id
+						//listen to thunderpush on that converation id chanel
+						//onreceive loadMessages()
+						loadMessages()
+
+					});
 			});
 
 			$('#_jua_message_text').keypress(function (e) {
 				if (e.which == 13) {
-					$.post(_create_messages_url, {
-						javascript_key: _jua_javascript_key,
-						_jua_conversation_id: _jua_conversation_id,
-						_jua_message: $('#_jua_message_text').val()
-					}).done(function (data) {
-						loadMessages();
-						$('#_jua_message_text').val('');
-					});
+					$.post(_create_messages_url, { javascript_key: _jua_javascript_key, _jua_conversation_id: _jua_conversation_id, _jua_message: $('#_jua_message_text').val() })
+						.done(function (data) {
+							loadMessages()
+							$('#_jua_message_text').val('')
+						});
 					return false;
 				}
 			});
 
 			function loadMessages() {
-				$.get(_get_messages_url, {
-					javascript_key: _jua_javascript_key,
-					_jua_conversation_id: _jua_conversation_id
-				}).done(function (data) {
-					var response = jQuery.parseJSON(data);
-					$('#jua_messages').html('');
-					$.each(response, function (key, value) {
-						let chat_class;
-						if (value.Response == 0) {
-							chat_class = 'chatbox__body__message--right';
-						} else {
-							chat_class = 'chatbox__body__message--left';
-						}
+				$.get(_get_messages_url, { javascript_key: _jua_javascript_key, _jua_conversation_id: _jua_conversation_id })
+					.done(function (data) {
+						var response = jQuery.parseJSON(data);
+						$('#jua_messages').html('')
+						$.each(response, function (key, value) {
+							let chat_class;
+							if (value.Response == 0) { chat_class = "chatbox__body__message--right"; } else { chat_class = "chatbox__body__message--left"; }
 
-						$('#jua_messages').append(
-							'<div class="chatbox__body__message ' +
-							chat_class +
-							' ">\n' +
-							' <img src="https://www.iconsdb.com/icons/preview/gray/user-xxl.png" alt="Picture">\n' +
-							" <p class='jua_message'>" +
-							value.Message +
-							'</p>\n' +
-							' </div>'
-						);
+							$('#jua_messages').append("<div class=\"chatbox__body__message " + chat_class + "\">\n" +
+								"                <img src=\"https://www.iconsdb.com/icons/preview/gray/user-xxl.png\" alt=\"Picture\">\n" +
+								"                <p class='jua_message'>" + value.Message + "</p>\n" +
+								"            </div>")
+
+						})
+						$('#jua_messages').append("<a id=\"bottomOfDiv\"></a>");
+						document.getElementById('bottomOfDiv').scrollIntoView(true);
+
 					});
-					$('#jua_messages').append('<a id="bottomOfDiv"></a>');
-					document
-						.getElementById('bottomOfDiv')
-						.scrollIntoView(true);
-				});
 			}
 
-			function loadConversation() { }
+			function loadConversation() {
+
+			}
+
+
+
+
 		})(jQuery);
 	</script>
-	<!-- <script src="script.js"></script> -->
+	<script src="thunder.js"></script>
+	<script type="text/javascript">
+		Thunder.connect("http://86cdb6c2.ngrok.io", "MhPN3ItPqy", ["keysons_notifications", "k_user_", { Auth: id() }], { log: true });
+		Thunder.listen(function (message) { alert(message); });
+	</script>
 </body>
 
 </html>

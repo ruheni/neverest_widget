@@ -207,7 +207,7 @@
 			height: 40px;
 			border-radius: 4px;
 			border: 2px solid #fcfcfc;
-			position: absolute;
+			position: overflow;
 			top: 15px;
 		}
 
@@ -281,7 +281,7 @@
 			/*
 			Declare jua variables
 			 */
-			let base_url = 'http://86cdb6c2.ngrok.io';
+			let base_url = 'http://29a62460.ngrok.io/api/';
 			let _start_url = base_url + 'start_conversation';
 			let _create_messages_url = base_url + 'save_message';
 			let _get_messages_url = base_url + 'get_messages';
@@ -310,9 +310,8 @@
 						$chatbox.removeClass('chatbox--empty');
 
 						_jua_conversation_id = response.conversation_id
-						//listen to thunderpush on that converation id chanel
-						//onreceive loadMessages()
 						loadMessages()
+						startListening()
 
 					});
 			});
@@ -350,19 +349,21 @@
 			}
 
 			function loadConversation() {
-
 			}
 
+			function startListening() {
+				Thunder.connect("157.230.213.22:8080", "MhPN3ItPqy", ["keysons_notifications", `${_jua_conversation_id}`, 1], { log: true });
+				Thunder.listen(function (message) {
+					loadConversation();
+					loadMessages();
 
+				});
+			}
 
 
 		})(jQuery);
 	</script>
 	<script src="thunder.js"></script>
-	<script type="text/javascript">
-		Thunder.connect("http://86cdb6c2.ngrok.io", "MhPN3ItPqy", ["keysons_notifications", "k_user_", 1], { log: true });
-		Thunder.listen(function (message) { alert(message); });
-	</script>
 </body>
 
 </html>
